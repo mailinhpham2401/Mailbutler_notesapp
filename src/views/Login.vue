@@ -3,8 +3,8 @@
     <h3 style="font-family:'Arial' bold;">Login</h3>
     <form @submit.prevent="login" action="">
       <div v-if="errors" class="errors">
-        <p v-for="(error, field) in errors" :key="field">
-          {{ error[0] }}
+        <p v-for="(error, index) in errors" :key="index" >
+          {{ error }}
         </p>
       </div>
       <input
