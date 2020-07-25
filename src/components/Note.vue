@@ -8,11 +8,9 @@
     <div class="note-title" contenteditable="" @blur="titleChanged">
       {{ note.title }}
     </div>
-    <div
-      class="note-body"
-      contenteditable=""
-      @blur="bodyChanged"
-    >{{note.body}}</div>
+    <div class="note-body" contenteditable="" @blur="bodyChanged">
+      {{ note.body }}
+    </div>
   </div>
 </template>
 
@@ -25,22 +23,17 @@ export default {
       required: true,
     },
   },
-  /* watch: {
-    ["note.title"]() {
-      console.log("note changed");
-    },
-  }, */
   methods: {
     titleChanged($event) {
-			console.log($event);
+      console.log($event);
       this.note.title = $event.target.innerHTML;
       this.$emit("noteUpdated", this.note);
     },
     bodyChanged($event) {
-			console.log($event);
+      console.log($event);
       this.note.body = $event.target.innerHTML;
       this.$emit("noteUpdated", this.note);
-    }, 
+    },
     deleteNote() {
       this.$emit("deleteNote", this.note);
     },

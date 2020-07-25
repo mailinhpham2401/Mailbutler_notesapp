@@ -1,15 +1,15 @@
 <template>
   <div class="home">
-    <notes/>
+    <notes />
   </div>
 </template>
 
 <script>
 import Notes from "../components/Notes";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    Notes
-  }
-}
+    Notes,
+  },
+};
 </script>

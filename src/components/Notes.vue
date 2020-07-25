@@ -7,7 +7,6 @@
         :note="note"
         :key="index"
         @deleteNote="deleteNote"
-       
       />
     </div>
   </div>
@@ -16,44 +15,38 @@
 <script>
 import AddNewButton from "./AddNewButton";
 import Note from "./Note";
- export default {
+export default {
   name: "Notes",
   components: { Note, AddNewButton },
   data() {
     return {
       notes: [
-				{
-      title: 'sun',
-      body: 'yellow'
-    },
-    {
-      title: 'moon',
-      body: 'white'
-    },
-    {
-      title: 'cloud',
-      body: 'floats'
-    }
-			],
+        {
+          title: "sun",
+          body: "yellow",
+        },
+        {
+          title: "moon",
+          body: "white",
+        },
+        {
+          title: "cloud",
+          body: "floats",
+        },
+      ],
     };
   },
   methods: {
-     addNote() {
-      this.notes.unshift({title:'', body:''});
+    addNote() {
+      this.notes.unshift({ title: "", body: "" });
     },
-    noteUpdated(note){
-        console.log(note);
-		},
+    noteUpdated(note) {
+      console.log(note);
+    },
     deleteNote(note) {
-      this.notes.splice(this.notes.indexOf(note), 1);     
+      this.notes.splice(this.notes.indexOf(note), 1);
     },
   },
-  /* async beforeMount() {
-      const {status, data} = await notesService.get();
-      if (status === 200) {
-        this.notes = data;
-      }
-    }  */
 };
 </script>
 
