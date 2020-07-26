@@ -9,27 +9,28 @@
       </div>
       <input
         type="text"
-        v-model="form.username"
-        placeholder="Username or Email"
+        v-model="form.email"
+        placeholder="Email"
       /><br />
       <input
         type="password"
         v-model="form.password"
         placeholder="Password"
       /><br />
-      <button>Login</button>
+      <button @click="login">Login</button>
       <router-link to="/register" class="link">Register</router-link>
     </form>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: "Login",
   data() {
     return {
       form: {
-        username: "",
+        email: "",
         password: "",
       },
       errors: null,
@@ -37,10 +38,14 @@ export default {
   },
   methods: {
     login() {
-      console.log("Login", this.form);
-    },
+			axios.post('https://beta.mailbutler.io/api/v2/users/', this.form)
+		.then(response =>{
+			console.log(response);
+			this.$router.push('/');
+		});
   },
-};
+}
+}
 </script>
 
 <style lang="scss" scoped></style>

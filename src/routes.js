@@ -11,8 +11,8 @@ Vue.use(VueRouter);
 export const routes = [
   {
     path: "/",
-    name: "Default",
-    redirect: "/home",
+		name: "default",
+		redirect:"/home",
     component: DefaultLayout,
     children: [
       {
@@ -40,11 +40,11 @@ export const routes = [
     ],
   },
   {
-    path: "/login",
+		path: "/login",
     redirect: "/auth/login",
   },
   {
     path: "/register",
     redirect: "/auth/register",
-  },
+	},
 ];

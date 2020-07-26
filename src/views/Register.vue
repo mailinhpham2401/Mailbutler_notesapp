@@ -9,8 +9,8 @@
       </div>
       <input
         type="text"
-        v-model="form.username"
-        placeholder="Username or Email"
+        v-model="form.email"
+        placeholder="Email"
       /><br />
       <input
         type="password"
@@ -19,28 +19,38 @@
       /><br />
       <input
         type="password"
-        v-model="form.password_repeat"
-        placeholder="Password"
+        v-model="form.password_confirm"
+        placeholder="Confirm password"
       /><br />
-      <button>Register</button>
+      <button @click="register">Register</button>
       <router-link to="/login" class="link">Login</router-link>
     </form>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: "Register",
   data() {
     return {
       form: {
-        username: "",
+        email: "",
         password: "",
         password_repeat: "",
       },
       errors: null,
     };
-  },
+	},
+	methods:{
+		register(){
+     axios.post('https://beta.mailbutler.io/api/v2/users/', this.form)
+		.then(response =>{
+			console.log(response);
+		}); 
+		}
+		
+	}
 };
 </script>
 
