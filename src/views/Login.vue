@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     login() {
-			axios.post('https://beta.mailbutler.io/api/v2/users/', this.form)
+			axios.post('https://beta.mailbutler.io/api/v2/users/login', this.form)
 		.then(response =>{
 			console.log(response);
 			this.$router.push('/');
