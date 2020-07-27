@@ -1,16 +1,14 @@
 <template>
   <div class="navbar">
-    <b class="name">Mailbutler</b> {{ user.username }}
-    <a href="" @click="logout">Logout</a>
+    <b class="name">Mailbutler</b>
+    <a href @click="logout">Logout</a>
   </div>
 </template>
 
 <script>
 export default {
   name: "Navbar",
-  props: {
-    user: Object,
-  },
+  props: {},
   methods: {
     logout() {
       console.log("Logout");

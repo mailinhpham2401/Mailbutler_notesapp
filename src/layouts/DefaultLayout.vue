@@ -1,6 +1,6 @@
 <template>
   <div id="default-layout">
-    <navbar :user="user" />
+    <navbar />
     <router-view />
   </div>
 </template>
@@ -10,11 +10,6 @@ import Navbar from "./Navbar";
 export default {
   name: "DefaultLayout",
   components: { Navbar },
-  data() {
-    return {
-      user: {},
-    };
-  },
 };
 </script>
 
