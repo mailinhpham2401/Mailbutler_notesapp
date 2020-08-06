@@ -7,6 +7,7 @@
         :note="note"
         :key="index"
         @deleteNote="deleteNote"
+				@noteUpdated="noteUpdated"
       />
     </div>
   </div>
