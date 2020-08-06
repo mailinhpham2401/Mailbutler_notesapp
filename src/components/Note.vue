@@ -9,7 +9,7 @@
       {{ note.title }}
     </div>
     <div class="note-body" contenteditable="" @blur="bodyChanged">
-      {{ note.body }}
+      {{ note.text }}
     </div>
   </div>
 </template>

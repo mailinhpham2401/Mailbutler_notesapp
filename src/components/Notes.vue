@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import AddNewButton from "./AddNewButton";
 import Note from "./Note";
 export default {
@@ -23,21 +24,25 @@ export default {
       notes: [
         {
           title: "sun",
-          body: "yellow",
+          text: "yellow",
         },
         {
           title: "moon",
-          body: "white",
+          text: "white",
         },
         {
           title: "cloud",
-          body: "floats",
-        },
+          text: "floats",
+				},
       ],
     };
   },
   methods: {
     addNote() {
+			// axios.post('https://beta.mailbutler.io/api/v2/notes',this.notes.text)
+			// .then(response =>{
+			// 	console.log(response);
+			// })
       this.notes.unshift({ title: "", body: "" });
     },
     noteUpdated(note) {

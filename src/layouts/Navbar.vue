@@ -1,17 +1,39 @@
 <template>
   <div class="navbar">
     <b class="name">Mailbutler</b>
-    <a href @click="logout">Logout</a>
+    <a href @click="logout" v-if="login">Logout</a>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Navbar",
   props: {},
+  data() {
+    return {
+      form: {
+        email: "",
+        password: "",
+      },
+      errors: null,
+      token: localStorage.getItem("token") || null,
+    };
+  },
   methods: {
+    login() {
+      axios
+        .post("https://beta.mailbutler.io/api/v2/users/login", this.form)
+        .then((response) => {
+          console.log(response);
+          let token = response.data.token;
+          localStorage.setItem("token", token);
+          this.$router.push("/");
+          return token != null;
+        });
+    },
     logout() {
-      console.log("Logout");
+      this.$router.push("/login");
     },
   },
 };
