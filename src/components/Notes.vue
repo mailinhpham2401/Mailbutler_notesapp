@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+//import axios from 'axios'
 import AddNewButton from "./AddNewButton";
 import Note from "./Note";
 export default {
